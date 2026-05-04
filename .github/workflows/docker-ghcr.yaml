@@ -5,13 +5,17 @@ name: Docker ghcr.io
 # separate terms of service, privacy policy, and support
 # documentation.
 
+# on:
+#   push:
+#     branches: [main]
+#     # Publish semver tags as releases.
+#     tags: ["v*.*.*"]
+#   pull_request:
+#     branches: [main]
+
+# 暂时注释掉自动推送，改为仅手动触发，避免 Vercel 部署时报 CI 错误
 on:
-  push:
-    branches: [main]
-    # Publish semver tags as releases.
-    tags: ["v*.*.*"]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
